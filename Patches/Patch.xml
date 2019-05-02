@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Animals</li>
+		</mods>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BiomeDef[defName = "TemperateForest"]/wildAnimals</xpath>
+			<value>
+				<NightlingF>0.015</NightlingF>
+			</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Animals</li>
+		</mods>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BiomeDef[defName = "BorealForest"]/wildAnimals</xpath>
+			<value>
+				<NightlingF>0.014</NightlingF>
+			</value>
+		</nomatch>
+	</Operation>-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Animals</li>
+		</mods>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/BiomeDef[defName = "AridShrubland"]/wildAnimals</xpath>
+			<value>
+				<NightlingF>0.012</NightlingF>
+			</value>
+		</nomatch>
+	</Operation>
+
+  
+	<!-- Mod Support for Alpha Animals -->
+  <Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Alpha Animals</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+        <!-- Change Label -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/PawnKindDef[defName = "NightlingF"]/label</xpath>
+				<value>
+					<label>Abandoned Hellhound</label>
+				</value>
+			</li>
+		</operations>
+	</match>
+  </Operation>
+
+  <Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Alpha Animals</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+  			<!-- No NightlingF in the Shop -->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef[defName = "NightlingF"]/tradeTags</xpath>
+			</li>
+		</operations>
+	</match>
+  </Operation>
+
+  <Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Alpha Animals</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<!-- AA Nightlings in Scenario -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ScenarioDef[defName = "ForsakenCrashlanded"]/scenario/parts</xpath>
+				<value>
+					<parts>
+						<!-- Config pages -->
+						<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+						  <def>ConfigPage_ConfigureStartingPawns</def>
+						  <pawnCount>4</pawnCount>
+						  <pawnChoiceCount>10</pawnChoiceCount>
+						</li>
+						<!-- Player starting stuff spawn method-->
+						<li Class="ScenPart_PlayerPawnsArriveMethod">
+						  <def>PlayerPawnsArriveMethod</def>
+						  <method>DropPods</method>
+						  <visible>false</visible>
+						</li>
+						<!-- Player starting things -->
+						<li Class="ScenPart_StartingThing_Defined">
+						  <def>StartingThing_Defined</def>
+						  <thingDef>Silver</thingDef>
+						  <count>800</count>
+						</li>
+						<li Class="ScenPart_StartingThing_Defined">
+						  <def>StartingThing_Defined</def>
+						  <thingDef>MealSurvivalPack</thingDef>
+						  <count>44</count>
+						</li>
+						<li Class="ScenPart_StartingThing_Defined">
+						  <def>StartingThing_Defined</def>
+						  <thingDef>MedicineHerbal</thingDef>
+						  <count>30</count>
+						</li>
+						<li Class="ScenPart_StartingThing_Defined">
+						  <def>StartingThing_Defined</def>
+						  <thingDef>FBow</thingDef>
+						</li>
+						<li Class="ScenPart_StartingThing_Defined">
+						  <def>StartingThing_Defined</def>
+						  <thingDef>FSpear</thingDef>
+						</li>
+						<li Class="ScenPart_StartingThing_Defined">
+						  <def>StartingThing_Defined</def>
+						  <thingDef>FSpear</thingDef>
+						</li>
+						<li Class="ScenPart_StartingThing_Defined">
+						  <def>StartingThing_Defined</def>
+						  <thingDef>FBow</thingDef>
+						</li>
+						<li Class="ScenPart_StartingAnimal">
+						  <def>StartingAnimal</def>
+							  <animalKind>AA_Nightling</animalKind>
+						  <count>1</count>
+						  <bondToRandomPlayerPawnChance>1.0</bondToRandomPlayerPawnChance>
+						</li>
+						<!-- Scatter some things near player start -->
+						<li Class="ScenPart_ScatterThingsNearPlayerStart">
+						  <def>ScatterThingsNearPlayerStart</def>
+						  <thingDef>Steel</thingDef>
+						  <count>450</count>
+						</li>
+						<li Class="ScenPart_ScatterThingsNearPlayerStart">
+						  <def>ScatterThingsNearPlayerStart</def>
+						  <thingDef>WoodLog</thingDef>
+						  <count>300</count>
+						</li>
+					</parts>
+				</value>
+			</li>
+		</operations>
+	</match>
+  </Operation>
+  
+  <Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Alpha Animals</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+  			<!-- Alpha Animals uses AA_EggNightlingFertilized -->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef[defName = "EggNightlingFertilized"]</xpath>
+			</li>
+			<!-- Avoid double Eggs in the storage, remove EggLayer ### Note: check if Eggs are still around somewhere -->
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/ThingDef[defName = "NightlingF"]/comps</xpath>
+			</li>
+		</operations>
+	</match>
+  </Operation>
+
+  <Operation Class="PatchOperationFindMod">
+	<mods>
+		<li>Alpha Animals</li>
+	</mods>
+	<match Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<!-- Need to replace NightlingF with AA_Nightling in Faction pawnGroupMakers -->
+			<!-- Avoid double Eggs in the storage, remove EggLayer, check if Eggs are still around somewhere -->
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/FactionDef[defName = "Forsakens"]/pawnGroupMakers</xpath>
+				<value>
+					<pawnGroupMakers>
+					  <li>
+						<!-- Normal fights, standard mix -->
+						<kindDef>Combat</kindDef>
+						<commonality>25</commonality>
+						<options>
+							<ForsakenSlasher>400</ForsakenSlasher>
+							<ForsakenSniper>400</ForsakenSniper>
+							<ForsakenGunner>420</ForsakenGunner>
+							<AA_Nightling>400</AA_Nightling>
+							<KingOfTheLostOnes>420</KingOfTheLostOnes>
+						</options>
+					  </li>
+					  <li>
+						<!-- Normal fights, melee-only -->
+						<kindDef>Combat</kindDef>
+						<commonality>25</commonality>
+						<disallowedStrategies>
+						<li>Siege</li>
+						</disallowedStrategies>
+						<options>
+							<ForsakenSlasher>400</ForsakenSlasher>
+							<ForsakenSniper>400</ForsakenSniper>
+							<ForsakenGunner>420</ForsakenGunner>
+							<AA_Nightling>400</AA_Nightling>
+							<KingOfTheLostOnes>420</KingOfTheLostOnes>
+						</options>
+					  </li>
+					  <li>
+						<!-- Base defense -->
+						<kindDef>Settlement</kindDef>
+						<options>
+							<ForsakenSlasher>400</ForsakenSlasher>
+							<ForsakenSniper>400</ForsakenSniper>
+							<ForsakenGunner>420</ForsakenGunner>
+							<AA_Nightling>400</AA_Nightling>
+							<KingOfTheLostOnes>420</KingOfTheLostOnes>
+						</options>
+					  </li>
+					</pawnGroupMakers>
+				</value>
+			</li>
+		</operations>
+	</match>
+  </Operation>
+
+</Patch>
