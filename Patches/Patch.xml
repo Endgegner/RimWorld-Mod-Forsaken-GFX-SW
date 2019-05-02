@@ -161,7 +161,7 @@
 			<li Class="PatchOperationRemove">
 				<xpath>/Defs/ThingDef[defName = "EggNightlingFertilized"]</xpath>
 			</li>
-			<!-- Avoid double Eggs in the storage, remove EggLayer ### Note: check if Eggs are still around somewhere -->
+			<!-- Avoid double Eggs in the storage, remove EggLayer, check if Eggs are still around somewhere -->
 			<li Class="PatchOperationRemove">
 				<xpath>/Defs/ThingDef[defName = "NightlingF"]/comps</xpath>
 			</li>
@@ -177,7 +177,6 @@
 		<success>Always</success>
 		<operations>
 			<!-- Need to replace NightlingF with AA_Nightling in Faction pawnGroupMakers -->
-			<!-- Avoid double Eggs in the storage, remove EggLayer, check if Eggs are still around somewhere -->
 			<li Class="PatchOperationReplace">
 				<xpath>/Defs/FactionDef[defName = "Forsakens"]/pawnGroupMakers</xpath>
 				<value>
