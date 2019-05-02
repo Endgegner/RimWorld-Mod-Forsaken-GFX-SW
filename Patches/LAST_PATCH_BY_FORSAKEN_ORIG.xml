@@ -1,0 +1,22 @@
+OLD:
+
+<!--    <Operation Class="PatchOperationAdd">
+		<xpath>/Defs/BiomeDef[defName = "TemperateForest"]/wildAnimals</xpath>
+		<value>
+			<NightlingF>0.015</NightlingF>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/BiomeDef[defName = "BorealForest"]/wildAnimals</xpath>
+		<value>
+			<NightlingF>0.014</NightlingF>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/BiomeDef[defName = "AridShrubland"]/wildAnimals</xpath>
+		<value>
+			<NightlingF>0.012</NightlingF>
+		</value>
+	</Operation> -->
