@@ -130,7 +130,6 @@
 						  <def>StartingAnimal</def>
 							  <animalKind>AA_Nightling</animalKind>
 						  <count>1</count>
-						  <bondToRandomPlayerPawnChance>1.0</bondToRandomPlayerPawnChance>
 						</li>
 						<!-- Scatter some things near player start -->
 						<li Class="ScenPart_ScatterThingsNearPlayerStart">
